@@ -1,5 +1,6 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import bookRouter from './book/book.router'
 
 const app = new Hono()
 
@@ -7,10 +8,11 @@ app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
 
-const port = 3000
-console.log(`Server is running on port ${port}`)
+app.route('/', bookRouter)
+
 
 serve({
   fetch: app.fetch,
-  port
+  port: Number(process.env.PORT)
 })
+console.log(`Server is running on port ${process.env.PORT} 📢`)
