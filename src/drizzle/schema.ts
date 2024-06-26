@@ -7,3 +7,7 @@ export const bookTable = pgTable("book", {
     author: varchar("author", { length: 255 }).notNull(),
     publication_year: integer("publication_year").notNull(),
 });
+
+
+export type BookSelect = typeof bookTable.$inferSelect
+export type BookInsert = typeof bookTable.$inferInsert

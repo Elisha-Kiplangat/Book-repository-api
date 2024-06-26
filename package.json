@@ -1,8 +1,8 @@
 {
-  "scripts": {
+    "scripts": {
     "dev": "tsx watch src/index.ts",
-    "start": "node ./dist/index.js",
     "build": "tsc",
+    "start": "node dist/index.js",
     "studio": "drizzle-kit studio",
     "push": "drizzle-kit push"
   },
