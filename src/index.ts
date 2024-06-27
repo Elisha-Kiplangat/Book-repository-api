@@ -1,9 +1,12 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import bookRouter from './book/book.router'
+import {cors} from 'hono/cors'
+
 
 const app = new Hono()
 
+app.use('/*', cors())
 app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
